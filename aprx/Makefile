@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/aprx
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libpthread
+  DEPENDS:=+libpthread +kmod-ax25
   TITLE:=Hamradio APRS iGate / Digipeater
   URL:=http://thelifeofkenneth.com/aprx/
   MAINTAINER:=Antony Chazapis <chazapis@gmail.com>
@@ -50,7 +50,7 @@ endef
 
 define Package/aprx/install
 	$(INSTALL_DIR) $(1)/etc/init.d
-        $(INSTALL_BIN) ./files/aprx.init $(1)/etc/init.d/aprx
+	$(INSTALL_BIN) ./files/aprx.init $(1)/etc/init.d/aprx
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(CP) $(PKG_INSTALL_DIR)/usr/sbin/aprx $(1)/usr/sbin/
 	$(INSTALL_DIR) $(1)/etc
